@@ -41,6 +41,7 @@ public class Patient {
 
     @PreUpdate
     protected void onUpdate(){
+
         updatedTime = HealthCareUtil.changeCurrentTimeToLocalDateFromGmtToISTInString();
     }
 }
