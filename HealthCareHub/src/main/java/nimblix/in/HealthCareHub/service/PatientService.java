@@ -1,7 +1,8 @@
 package nimblix.in.HealthCareHub.service;
 
-import nimblix.in.HealthCareHub.model.Patient;
+import nimblix.in.HealthCareHub.request.PatientRequestDTO;
+import nimblix.in.HealthCareHub.response.PatientResponseDTO;
 
 public interface PatientService {
-    Patient createPatient(Patient patient);
+    PatientResponseDTO createPatient(PatientRequestDTO requestDTO);
 }
