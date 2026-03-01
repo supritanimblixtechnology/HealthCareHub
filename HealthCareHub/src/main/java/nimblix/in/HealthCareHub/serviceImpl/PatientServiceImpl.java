@@ -1,8 +1,8 @@
 package nimblix.in.HealthCareHub.serviceImpl;
 
 import lombok.RequiredArgsConstructor;
-import nimblix.in.HealthCareHub.request.PatientRequestDTO;
-import nimblix.in.HealthCareHub.response.PatientResponseDTO;
+import nimblix.in.HealthCareHub.request.PatientRequest;
+import nimblix.in.HealthCareHub.response.PatientResponse;
 import nimblix.in.HealthCareHub.model.Patient;
 import nimblix.in.HealthCareHub.repository.PatientRepository;
 import nimblix.in.HealthCareHub.service.PatientService;
@@ -14,7 +14,7 @@ public class PatientServiceImpl implements PatientService {
     private final PatientRepository patientRepository;
 
     @Override
-    public PatientResponseDTO createPatient(PatientRequestDTO requestDTO) {
+    public PatientResponse createPatient(PatientRequest requestDTO) {
 
         Patient patient = Patient.builder()
                 .name(requestDTO.getName())
@@ -26,7 +26,7 @@ public class PatientServiceImpl implements PatientService {
 
         Patient savedPatient = patientRepository.save(patient);
 
-        return PatientResponseDTO.builder()
+        return PatientResponse.builder()
                 .patientId(savedPatient.getId())
                 .name(savedPatient.getName())
                 .gender(savedPatient.getGender())
