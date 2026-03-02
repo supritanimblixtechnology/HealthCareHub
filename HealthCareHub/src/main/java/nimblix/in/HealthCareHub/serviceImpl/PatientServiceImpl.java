@@ -14,14 +14,14 @@ public class PatientServiceImpl implements PatientService {
     private final PatientRepository patientRepository;
 
     @Override
-    public PatientResponse createPatient(PatientRequest requestDTO) {
+    public PatientResponse createPatient(PatientRequest request) {
 
         Patient patient = Patient.builder()
-                .name(requestDTO.getName())
-                .gender(requestDTO.getGender())
-                .phone(requestDTO.getPhone())
-                .age(requestDTO.getAge())
-                .disease(requestDTO.getDisease())
+                .name(request.getName())
+                .gender(request.getGender())
+                .phone(request.getPhone())
+                .age(request.getAge())
+                .disease(request.getDisease())
                 .build();
 
         Patient savedPatient = patientRepository.save(patient);
